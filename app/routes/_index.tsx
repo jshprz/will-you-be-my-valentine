@@ -6,11 +6,13 @@ import { Link } from "@remix-run/react";
 
 export default function Index() {
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 });
+  const [yesFontSize, setYesFontSize] = useState(14);
 
   const moveNoButton = () => {
     const newX = Math.random() * 200 - 100;
     const newY = Math.random() * 200 - 100;
     setNoPosition({ x: newX, y: newY });
+    setYesFontSize((prevSize) => prevSize + 2);
   };
 
   return (
@@ -23,10 +25,12 @@ export default function Index() {
             <Link
               to="/thank-you"
               className="px-6 py-3 bg-pink-500 text-white font-semibold rounded-full shadow-lg hover:bg-pink-600 transition duration-300"
+              style={{ fontSize: `${yesFontSize}px` }}
             >
               Yes! 💕
             </Link>
             <motion.button
+              onClick={moveNoButton}
               onMouseEnter={moveNoButton}
               animate={{ x: noPosition.x, y: noPosition.y }}
               transition={{ type: "spring", stiffness: 100 }}
