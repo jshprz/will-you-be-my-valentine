@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "@remix-run/react";
 
 export default function Index() {
+  const inviteeName = import.meta.env.VITE_INVITEE_NAME || "Valentine";
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 });
   const [yesFontSize, setYesFontSize] = useState(14);
 
@@ -19,7 +20,7 @@ export default function Index() {
     <div className="flex items-center justify-center min-h-screen sm:h-screen bg-pink-100">
       <div className="text-center font-courier">
         <h1 className="text-4xl font-bold text-pink-600 mb-6">
-          Hey, Maria Pamela Jezreel Laylo Matoto, <br/> will you be my Valentine? 💖
+          Hey, {inviteeName}, <br/> will you be my Valentine? 💖
         </h1>
           <div className="flex flex-col items-center gap-4">
             <Link
